@@ -3,26 +3,21 @@ import Cell from './components/Cell';
 import { checkWin } from './logic/app-global';
 
 function App() {
-  let arr = [];
   let data = []
-  for (let i = 0; i <= 9; i++) {
-    for (let j = 0; j <= 9; j++) {
-      let temp = i.toString() + j.toString();
-      arr.push(temp);
-      data.push(null);
-    }
+  for (let i = 0; i < 100; i++) {
+    data.push(null);
   }
+
   const [value, setValue] = useState(data);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [currentIndex, setCurrentIndex] = useState();
   const [winner, setWinner] = useState();
 
-
   useEffect(() => {
     setWinner(checkWin(currentIndex, value));
   });
 
-  function handleClick(currentValue, index) {
+  function handleClick(index) {
     setCurrentIndex(index)
     if (value[index]) return;
 
@@ -41,8 +36,8 @@ function App() {
     <div className="wrapper">
       <div className='game-container'>
         {
-          arr.map((item, index) => (
-            <Cell key={item} number={item} value={value[index]} index={index} valueChange={handleClick} />
+          data.map((item, index) => (
+            <Cell key={index} value={value[index]} index={index} valueChange={handleClick} />
           ))
         }
       </div>

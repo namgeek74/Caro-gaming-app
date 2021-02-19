@@ -1,5 +1,5 @@
 export function checkWin(currentCell, state) {
-    console.log(state[currentCell], state[currentCell + 10], state[currentCell + 20], state[currentCell + 30], state[currentCell + 40]);
+    // vertical
     if (state[currentCell]
         && state[currentCell] === state[currentCell + 10]
         && state[currentCell] === state[currentCell + 20]
@@ -45,6 +45,7 @@ export function checkWin(currentCell, state) {
         return 'Winner !'
     }
 
+    // horizontal
     if (state[currentCell]
         && state[currentCell] === state[currentCell + 1]
         && state[currentCell] === state[currentCell + 2]

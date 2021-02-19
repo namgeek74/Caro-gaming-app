@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Cell(props) {
     function handleClick() {
-        props.valueChange(props.number, props.index);
+        props.valueChange(props.index);
     }
 
     return (
